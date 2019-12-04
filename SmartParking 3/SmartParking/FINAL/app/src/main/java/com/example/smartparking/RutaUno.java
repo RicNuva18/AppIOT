@@ -71,7 +71,7 @@ public class RutaUno extends FragmentActivity  implements OnMapReadyCallback, Go
         //PARA GOOGLE MAPS
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.mapZonaParqueo);
+                .findFragmentById(R.id.mapRutaUno);
         mapFragment.getMapAsync(this);
         manager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -108,7 +108,7 @@ public class RutaUno extends FragmentActivity  implements OnMapReadyCallback, Go
 
         //Universidad Icesi- Edificio L
         LatLng ediL = new LatLng(3.341601, -76.529623);
-        mMap.addMarker(new MarkerOptions().position(ediL).title("Edificio L").snippet("Este es el lugar de preguntas").icon(BitmapDescriptorFactory.fromResource(R.drawable.edificio)));
+        mMap.addMarker(new MarkerOptions().position(ediL).title("Edificio L").snippet("Zona cercana a parqueaderos").icon(BitmapDescriptorFactory.fromResource(R.drawable.edificio)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(ediL));
         LatLng ediL2= new LatLng(3.341606,-76.529515);
         LatLng ediL3= new LatLng(3.341478,-76.529515);
