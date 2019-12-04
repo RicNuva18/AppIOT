@@ -30,7 +30,7 @@ public class SeleccionarDestino extends AppCompatActivity {
         });
 
         //PARA SEGUIR
-        next7= (ImageButton) findViewById(R.id.edificioL);
+        next7= (ImageButton) findViewById(R.id.zonaCincoDosDos);
 
         next7.setOnClickListener(new View.OnClickListener() {
             @Override
