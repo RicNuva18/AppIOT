@@ -27,5 +27,17 @@ public class RutaTres extends AppCompatActivity {
                 startActivity(atras10);
             }
         });
+
+        //PARA SEGUIR
+
+        next10 = (Button)findViewById(R.id.siguiente10);
+
+        next10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent next10 = new Intent(RutaTres.this, FeedbackTres.class);
+                startActivity(next10);
+            }
+        });
     }
 }

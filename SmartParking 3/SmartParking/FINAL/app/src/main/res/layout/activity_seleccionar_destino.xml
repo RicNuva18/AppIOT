@@ -42,7 +42,7 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/auditorios"
+                android:id="@+id/zonaUnoDos"
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -50,10 +50,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/rectangle" />
+                app:srcCompat="@drawable/zonauno" />
 
             <ImageButton
-                android:id="@+id/edificioC"
+                android:id="@+id/zonaDosDos"
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -61,10 +61,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/rectangle" />
+                app:srcCompat="@drawable/zonados" />
 
             <ImageButton
-                android:id="@+id/edificioD"
+                android:id="@+id/zonaTresDos"
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -72,10 +72,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/rectangle" />
+                app:srcCompat="@drawable/zonatres" />
 
             <ImageButton
-                android:id="@+id/edificioE"
+                android:id="@+id/zonaCuatroDos"
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -83,10 +83,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/rectangle" />
+                app:srcCompat="@drawable/zonacuatro" />
 
             <ImageButton
-                android:id="@+id/edificioF"
+                android:id="@+id/zonaCincoDosDos"
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -94,10 +94,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/rectangle" />
+                app:srcCompat="@drawable/zonacincodos" />
 
             <ImageButton
-                android:id="@+id/edificioL"
+                android:id="@+id/zonaSiesDos"
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -105,10 +105,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/rectangle" />
+                app:srcCompat="@drawable/zonaseis" />
 
             <ImageButton
-                android:id="@+id/edificioM"
+                android:id="@+id/zonaSieteDos"
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -116,30 +116,20 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/rectangle" />
+                app:srcCompat="@drawable/zonasiete" />
 
-            <ImageButton
-                android:id="@+id/edificioN"
-                android:layout_width="411dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/rectangle" />
 
         </LinearLayout>
     </ScrollView>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="261dp"
-        android:layout_height="31dp"
+        android:layout_width="255dp"
+        android:layout_height="75dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Selecciona tu destino"
+        android:text="¿Dónde estas ubicado?"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="26sp"

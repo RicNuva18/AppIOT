@@ -34,17 +34,6 @@ public class porteria extends AppCompatActivity {
         });
 
 
-        //PARA SEGUIR
-
-        next2 = (Button)findViewById(R.id.siguiente2);
-
-        next2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent next2 = new Intent(porteria.this, SeleccionarZonaParqueo.class);
-                startActivity(next2);
-            }
-        });
 
         //PARA LATERAL
         lateral1 = (Button)findViewById(R.id.lateral);
@@ -52,9 +41,11 @@ public class porteria extends AppCompatActivity {
         lateral1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lateral1.setBackground(getDrawable(R.drawable.rounded_yellow_button));
 
-                principal1.setBackground(getDrawable(R.drawable.rounded_white_button));
+                Intent lateral1 = new Intent(porteria.this, SeleccionarZonaParqueo.class);
+                startActivity(lateral1);
+                // lateral1.setBackground(getDrawable(R.drawable.rounded_yellow_button));
+                // principal1.setBackground(getDrawable(R.drawable.rounded_white_button));
             }
         });
 
@@ -64,8 +55,11 @@ public class porteria extends AppCompatActivity {
         principal1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                principal1.setBackground(getDrawable(R.drawable.rounded_yellow_button));
-                lateral1.setBackground(getDrawable(R.drawable.rounded_white_button));
+
+                Intent principal1 = new Intent(porteria.this, SeleccionarZonaParqueo.class);
+                startActivity(principal1);
+               // principal1.setBackground(getDrawable(R.drawable.rounded_yellow_button));
+               // lateral1.setBackground(getDrawable(R.drawable.rounded_white_button));
 
             }
         });

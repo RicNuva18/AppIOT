@@ -49,7 +49,7 @@ public class SeleccionarZonaParqueo extends AppCompatActivity   {
         });
 
         //PARA SELECCIONAR ZONA
-        zona5 = (ImageButton) findViewById(R.id.zonacinco);
+        zona5 = (ImageButton) findViewById(R.id.zonaCincoDos);
 
         zona5.setOnClickListener(new View.OnClickListener() {
             @Override
