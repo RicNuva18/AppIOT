@@ -1,16 +1,44 @@
 package com.example.smartparking;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-public class RutaUno extends AppCompatActivity {
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.util.Locale;
+
+public class RutaUno extends FragmentActivity  implements OnMapReadyCallback, GoogleMap.OnMarkerDragListener{
 
     Button atras5;
     Button next5;
+    private static final String TAG="MapsActivity";
+    private static final int REQUEST_CODE = 11 ;
+    private GoogleMap mMap;
+    private LocationManager manager;
+    private Marker me;
+    private Button btn_zonaParqueo;
+    private Button btn_edificioL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +66,106 @@ public class RutaUno extends AppCompatActivity {
                 startActivity(next5);
             }
         });
+
+
+        //PARA GOOGLE MAPS
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.mapZonaParqueo);
+        mapFragment.getMapAsync(this);
+        manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+
+    }
+
+    @Override
+    public void onMarkerDragStart(Marker marker) {
+
+
+    }
+
+    @Override
+    public void onMarkerDrag(Marker marker) {
+
+
+    }
+
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+
+    }
+
+    @SuppressLint("MissingPermission")
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+        }, REQUEST_CODE);
+
+
+
+        //Universidad Icesi- Edificio L
+        LatLng ediL = new LatLng(3.341601, -76.529623);
+        mMap.addMarker(new MarkerOptions().position(ediL).title("Edificio L").snippet("Este es el lugar de preguntas").icon(BitmapDescriptorFactory.fromResource(R.drawable.edificio)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(ediL));
+        LatLng ediL2= new LatLng(3.341606,-76.529515);
+        LatLng ediL3= new LatLng(3.341478,-76.529515);
+        LatLng ediL4= new LatLng(3.341462,-76.529274);
+        LatLng ediL5= new LatLng(3.340905,-76.529301);
+        LatLng ediL6= new LatLng(3.340905,-76.529489);
+        LatLng ediL7= new LatLng(3.340953,-76.529489);
+        LatLng ediL8= new LatLng(3.340951,-76.529540);
+        LatLng ediL9= new LatLng(3.341229,-76.529513);
+        LatLng ediL10= new LatLng(3.341234,-76.529470);
+        LatLng ediL11= new LatLng(3.341335,-76.529465);
+        LatLng ediL12= new LatLng(3.341346,-76.529631);
+        LatLng ediL13= new LatLng(3.341602,-76.529620);
+
+
+        mMap.addPolyline(new PolylineOptions().add(ediL,ediL2,ediL3,ediL4,ediL5,ediL6,ediL7,ediL8,ediL9,ediL10,ediL11,ediL12,ediL13).width(8f).color(Color.RED));
+
+
+        //mMap.setMyLocationEnabled(true);
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+
+        manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                if(me!=null){
+                    me.remove();
+                }
+                me = mMap.addMarker(new MarkerOptions()
+                        .position(new LatLng( location.getLatitude() ,  location.getLongitude()))
+                        .title("Me")
+                );
+                mMap.moveCamera(CameraUpdateFactory
+                        .newLatLng(new LatLng(location.getLatitude() ,  location.getLongitude())));
+
+                LatLng userPosition = new LatLng(me.getPosition().latitude, me.getPosition().longitude);
+
+
+
+            }
+
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String s) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String s) {
+
+            }
+        });
+
+
     }
 }
