@@ -12,6 +12,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -32,12 +33,11 @@ public class RutaUno extends FragmentActivity  implements OnMapReadyCallback, Go
 
     Button atras5;
     Button next5;
-    private static final String TAG="MapsActivity";
+       private static final String TAG="MapsActivity";
     private static final int REQUEST_CODE = 11 ;
     private GoogleMap mMap;
     private LocationManager manager;
     private Marker me;
-    private Button btn_zonaParqueo;
     private Button btn_edificioL;
 
     @Override
@@ -59,13 +59,13 @@ public class RutaUno extends FragmentActivity  implements OnMapReadyCallback, Go
         //PARA SEGUIR
         next5 = (Button)findViewById(R.id.siguiente5);
 
-        next5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent next5 = new Intent(RutaUno.this, FeedbackUno.class);
-                startActivity(next5);
-            }
-        });
+        //next5.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+            //public void onClick(View view) {
+              //  Intent next5 = new Intent(RutaUno.this, FeedbackUno.class);
+                //startActivity(next5);
+            //}
+        //});
 
 
         //PARA GOOGLE MAPS
@@ -122,12 +122,21 @@ public class RutaUno extends FragmentActivity  implements OnMapReadyCallback, Go
         LatLng ediL11= new LatLng(3.341335,-76.529465);
         LatLng ediL12= new LatLng(3.341346,-76.529631);
         LatLng ediL13= new LatLng(3.341602,-76.529620);
+       // LatLng userPositionIncio1 = new LatLng(me.getPosition().latitude, me.getPosition().longitude);
+       // LatLng destino=new LatLng(ediL.latitude,ediL.longitude);
 
 
         mMap.addPolyline(new PolylineOptions().add(ediL,ediL2,ediL3,ediL4,ediL5,ediL6,ediL7,ediL8,ediL9,ediL10,ediL11,ediL12,ediL13).width(8f).color(Color.RED));
 
 
-        //mMap.setMyLocationEnabled(true);
+        //LatLng userPositionIncio1 = new LatLng(me.getPosition().latitude, me.getPosition().longitude);
+        //Log.e(">>>", "LAT: " + me.getPosition().latitude + " , LONG: " + me.getPosition().longitude);
+
+
+        //LatLng destino=new LatLng(ediL.latitude,ediL.longitude);
+        //mMap.addPolyline(new PolylineOptions().add(userPositionIncio1,destino).width(8f).color(Color.BLACK));
+
+                //mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
@@ -145,6 +154,28 @@ public class RutaUno extends FragmentActivity  implements OnMapReadyCallback, Go
                         .newLatLng(new LatLng(location.getLatitude() ,  location.getLongitude())));
 
                 LatLng userPosition = new LatLng(me.getPosition().latitude, me.getPosition().longitude);
+                LatLng ediL = new LatLng(3.341601, -76.529623);
+                mMap.addPolyline(new PolylineOptions().add(userPosition,ediL).width(8f).color(Color.BLACK));
+
+                //Log.e(">>>", "LAT: " + me.getPosition().latitude + " , LONG: " + me.getPosition().longitude);
+                // Edificio L zona de preguntas
+                if (userPosition.latitude >= 3.340905 && userPosition.longitude >= -76.529631 && userPosition.latitude <= 3.341606 && userPosition.longitude <= -76.529274 ) {
+                    btn_edificioL = findViewById(R.id.siguiente5);
+                    btn_edificioL.setVisibility(View.VISIBLE);
+                    btn_edificioL.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(RutaUno.this, FeedbackUno.class);
+                            startActivity(i);
+                        }
+                    });
+
+                } else {
+                    btn_edificioL = findViewById(R.id.siguiente5);
+                    btn_edificioL.setVisibility(View.INVISIBLE);
+
+
+                }
 
 
 
