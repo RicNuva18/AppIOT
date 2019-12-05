@@ -23,6 +23,7 @@ public class ParqueaderosDisponibles extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private TextView disponibles;
+    private TextView cantidadMax;
 
 
     @Override
@@ -33,6 +34,8 @@ public class ParqueaderosDisponibles extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         disponibles = (TextView)findViewById(R.id.textView3);
+        cantidadMax=(TextView) findViewById(R.id.textView4);
+
 
         //PARA VOLVER
         atras4 = (Button)findViewById(R.id.back4);
@@ -62,26 +65,30 @@ public class ParqueaderosDisponibles extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-                mDatabase.child("Disponibles").child(dataSnapshot.getKey()).addValueEventListener(new ValueEventListener() {
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    mDatabase.child("ZonaA").child("Disponibles").addValueEventListener(new ValueEventListener() {
 
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                        Log.e("mensajee", dataSnapshot1.getChildren().toString());
-                        if (dataSnapshot1.exists()){
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                            Log.e("mensajee", dataSnapshot1.getChildren().toString());
+                            if (dataSnapshot1.exists()) {
 
-                            String disponible = dataSnapshot1.getChildren().toString();//para obtener el nombre
+                                String carrosIngresados = dataSnapshot1.getChildrenCount()+"";//para obtener el nombre
+                                Integer disponible=20-Integer.parseInt(carrosIngresados);
 
-                            disponibles.setText(disponible);
+                                disponibles.setText(disponible+"");
+                                cantidadMax.setText("20");
+                            }
+
+
                         }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                        }
+                    });
+            }
 
             }
 
@@ -90,5 +97,7 @@ public class ParqueaderosDisponibles extends AppCompatActivity {
 
             }
         });
+
+
     }
 }

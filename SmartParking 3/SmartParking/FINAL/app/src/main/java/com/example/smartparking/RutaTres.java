@@ -142,6 +142,13 @@ public class RutaTres extends FragmentActivity implements OnMapReadyCallback, Go
                 } else {
                     btn_edificioL = findViewById(R.id.siguiente10);
                     btn_edificioL.setVisibility(View.INVISIBLE);
+                    btn_edificioL.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(RutaTres.this, FeedbackTres.class);
+                            startActivity(i);
+                        }
+                    });
 
                 }
 

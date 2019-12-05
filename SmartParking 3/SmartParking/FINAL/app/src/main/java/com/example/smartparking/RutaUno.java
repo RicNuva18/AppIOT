@@ -173,6 +173,13 @@ public class RutaUno extends FragmentActivity  implements OnMapReadyCallback, Go
                 } else {
                     btn_edificioL = findViewById(R.id.siguiente5);
                     btn_edificioL.setVisibility(View.INVISIBLE);
+                    btn_edificioL.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(RutaUno.this, FeedbackUno.class);
+                            startActivity(i);
+                        }
+                    });
 
 
                 }

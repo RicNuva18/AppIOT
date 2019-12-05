@@ -156,6 +156,13 @@ public class RutaDos extends FragmentActivity implements OnMapReadyCallback, Goo
                 } else {
                     btn_edificioL = findViewById(R.id.siguiente8);
                     btn_edificioL.setVisibility(View.INVISIBLE);
+                    btn_edificioL.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(RutaDos.this, Reminder.class);
+                            startActivity(i);
+                        }
+                    });
 
                 }
 
