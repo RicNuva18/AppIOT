@@ -90,7 +90,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/zonauno" />
+                app:srcCompat="@drawable/primerazona" />
 
             <ImageButton
                 android:id="@+id/zonaDos"
@@ -101,7 +101,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/zonados" />
+                app:srcCompat="@drawable/segundazona" />
 
             <ImageButton
                 android:id="@+id/zonaTres"
@@ -112,7 +112,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/zonatres" />
+                app:srcCompat="@drawable/tercarazona" />
 
             <ImageButton
                 android:id="@+id/zonaCuatro"
@@ -123,7 +123,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/zonacuatro" />
+                app:srcCompat="@drawable/cuartazona" />
 
             <ImageButton
                 android:id="@+id/zonaCincoDos"
@@ -145,7 +145,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/zonaseis" />
+                app:srcCompat="@drawable/sextazona" />
 
             <ImageButton
                 android:id="@+id/zonaSiete"
@@ -156,7 +156,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/zonasiete" />
+                app:srcCompat="@drawable/septimazona" />
 
         </LinearLayout>
     </ScrollView>
