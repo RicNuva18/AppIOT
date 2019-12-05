@@ -87,6 +87,7 @@
 
             <ImageButton
                 android:id="@+id/zonaCincoDosDos"
+
                 android:layout_width="411dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
